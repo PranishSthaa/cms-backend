@@ -43,7 +43,7 @@ exports.create = (req, res) => {
 }
 
 exports.findAll = (req, res) => {
-    Fee.findAll().then(data => {
+    Fee.findAll({ include: Student }).then(data => {
         res.send(data);
     }).catch(err => {
         res.status(500).send({
